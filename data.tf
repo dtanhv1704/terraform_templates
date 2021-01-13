@@ -1,6 +1,11 @@
 # Get AMI ID for instances
-data "aws_ami" "amazon" {
+data "aws_ami" "ubuntu" {
   most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+  }
 
   filter {
     name   = "virtualization-type"
@@ -11,6 +16,6 @@ data "aws_ami" "amazon" {
     values = ["x86_64"]
   }
   
-  owners = ["amazon"]
-  # owners = ["099720109477"] # Canonical
+  # owners = ["amazon"]
+  owners = ["099720109477"] # Canonical
 }

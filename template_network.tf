@@ -55,6 +55,10 @@ resource "aws_route_table" "private-rt" {
       Name  = "${var.project_name}-private-rt"
     }
   )
+
+  lifecycle {
+    ignore_changes = [route]
+  }
 }
 
 # Public subnet

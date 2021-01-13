@@ -1,15 +1,16 @@
 variable "profile" {
-	# default = "labacc-ngloc"
-	default = "vti-training"
-	description = "Working AWS profile"
+	default = "labacc-ngloc"
+	# default = "vti-training" # AWS profile for provisioning
+	description = "AWS profile for provisioning"
 }
 
 variable "project_name" {
-  	default = "tflab"
+  	default = "tflab" # Project name, use as prefix for tagging resource name
+	description = "The project name, use as prefix for tagging resource name"
 }
 
 variable "ami_id" {
-	default = "ami-0885b1f6bd170450c"
+	default = "ami-0c20b8b385217763f"
 	description = "Ubuntu Server 20.04"
 }
 
@@ -18,7 +19,7 @@ variable "additional_tags" {
 		Owner 		= "anh.dinhtuan1"
 		Environment = "demo"
   	}
-  	description = "Additional resource tags"
+  	description = "Additional resource tags" # Additional tag for resources
   	type        = map(string)
 }
 
