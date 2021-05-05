@@ -66,8 +66,12 @@ resource "aws_subnet" "public-subnet" {
   count             = length(var.public_subnet_cidr)
   vpc_id            = aws_vpc.vpc.id
   cidr_block        = element(var.public_subnet_cidr,count.index)
+<<<<<<< HEAD:network.tf
   # availability_zone = element(var.azs,count.index)
   availability_zone = element(data.aws_availability_zones.available.names, count.index)
+=======
+  availability_zone = element(var.azs,count.index)
+>>>>>>> 52b9370188405708ae8d99eacc27fda74743fcc0:template_network.tf
 
   tags = merge(
     var.additional_tags,
@@ -82,8 +86,12 @@ resource "aws_subnet" "private-subnet" {
   count             = length(var.private_subnet_cidr)
   vpc_id            = aws_vpc.vpc.id
   cidr_block        = element(var.private_subnet_cidr,count.index)
+<<<<<<< HEAD:network.tf
   # availability_zone = element(var.azs,count.index)
   availability_zone = element(data.aws_availability_zones.available.names, count.index)
+=======
+  availability_zone = element(var.azs,count.index)
+>>>>>>> 52b9370188405708ae8d99eacc27fda74743fcc0:template_network.tf
 
   tags = merge(
     var.additional_tags,
