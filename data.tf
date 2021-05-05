@@ -19,3 +19,8 @@ data "aws_ami" "ubuntu" {
   # owners = ["amazon"]
   owners = ["099720109477"] # Canonical
 }
+
+# Get available zone of region
+data "aws_availability_zones" "available" {
+  state = "available"
+}

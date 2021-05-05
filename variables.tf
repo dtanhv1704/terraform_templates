@@ -24,13 +24,14 @@ variable "additional_tags" {
 }
 
 variable "region" {
-	default = "ap-southeast-1"
+	# default = "ap-southeast-1"
+	default = "ap-northeast-2"
 }
 
-variable "azs" {
-	type = list
-	default = ["ap-southeast-1a", "ap-southeast-1b", "ap-southeast-1c"]
-}
+# variable "azs" {
+# 	type = list
+# 	default = ["ap-southeast-1a", "ap-southeast-1b", "ap-southeast-1c"]
+# }
 
 variable "vpc_cidr" {
     default = "10.100.0.0/16"
