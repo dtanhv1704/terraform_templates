@@ -16,7 +16,7 @@ resource "aws_instance" "bastion" {
   # ami           = var.ami_id
   # instance_type = var.bastion_size
   instance_type = lookup(var.instance_size, "bastion") # Lookup instance size for bastion instance in variable
-  key_name      = lookup(var.key_pair, "bastion") # Lookup key pair for bastion instance in variable
+  key_name      = var.bastion_keypair
   subnet_id     = element(aws_subnet.public-subnet.*.id, 0)
   vpc_security_group_ids = [aws_security_group.bastion-sg.id]
 

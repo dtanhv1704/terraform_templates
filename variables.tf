@@ -66,7 +66,7 @@ variable "key_pair" {
 	description = "Map key pair file for each instance type"
 }
 
-variable "bastion_key_pair" {
+variable "bastion_keypair" {
 	description = "Key pair of bastion/jump host"
-	default = "tadi-test"
+	default = "tadi-lab"
 }
