@@ -24,7 +24,8 @@ module "network" {
 
 	# Parameter
  	vpc_id 					= module.network.vpc_id
-	subnet_id				=	module.network.public_subnet
+	subnet_id				=	element(module.network.public_subnet, 0)
+	# bastion_ami			=	var.bastion_ami
 	bastion_keypair	=	var.bastion_keypair
 	bastion_size		=	var.bastion_size
  	# vpc_id				= var.vpc_id

@@ -12,8 +12,8 @@ resource "aws_eip" "eip-bastion" {
 
 # Bastion host
 resource "aws_instance" "bastion" {
-  ami           = data.aws_ami.ubuntu.id #Use data to get AMI ID for defined OS
-  # ami           = var.ami_id
+  # ami           = var.bastion_ami
+  ami           = data.aws_ami.ubuntu.id
   instance_type = var.bastion_size
   key_name      = var.bastion_keypair
   subnet_id     = var.subnet_id

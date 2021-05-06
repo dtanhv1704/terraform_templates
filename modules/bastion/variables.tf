@@ -15,5 +15,12 @@ variable "default_tags" {
 
 variable "vpc_id" {}
 variable "subnet_id" {}
-variable "bastion_size" {}
-variable "bastion_keypair" {}
+# variable "bastion_ami" {
+#   description = "AMI ID of bastion"
+# }
+variable "bastion_size" {
+  description	= "Instance size of bastion"
+}
+variable "bastion_keypair" {
+	description	=	"Key pair of bastion/jump host"
+}
