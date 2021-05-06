@@ -24,24 +24,19 @@ variable "default_tags" {
   # 	}
 }
 
-# variable "azs" {
-# 	type = list
-# 	default = ["ap-southeast-1a", "ap-southeast-1b", "ap-southeast-1c"]
-# }
-
 variable "vpc_cidr" {
   description = "Define CIDR for VPC"
-	default = "10.100.0.0/16"
+#   default = "10.100.0.0/16"
 }
 
 variable "public_subnet_cidr" {
 	description = "List of subnet cidr for public subnet"
 	type = list
-	default = ["10.100.1.0/24", "10.100.2.0/24", "10.100.3.0/24"]
+	# default = ["10.100.1.0/24", "10.100.2.0/24", "10.100.3.0/24"]
 }
 
 variable "private_subnet_cidr" {
 	description = "List of subnet cidr for private subnet"
 	type = list
-	default = ["10.100.11.0/24", "10.100.12.0/24", "10.100.13.0/24"]
+	# default = ["10.100.11.0/24", "10.100.12.0/24", "10.100.13.0/24"]
 }
