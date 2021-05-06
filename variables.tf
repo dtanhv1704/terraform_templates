@@ -72,3 +72,7 @@ variable "key_pair" {
 variable "bastion_keypair" {
 	description = "Key pair of bastion/jump host"
 }
+
+variable "bastion_size" {
+	description = "Instance size of bastion"
+}

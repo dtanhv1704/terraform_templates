@@ -18,10 +18,14 @@ module "network" {
 
  module "bastion" {
 	source	=	"./modules/bastion"
- 	# Environment parameter
- 	vpc_id 				= module.network.vpc_id
-	subnet_id			=	module.network.public_subnet
- 	default_tags	=	var.default_tags
+ 	# Environment Tags
+	default_tags	=	var.default_tags
  	project_name	=	var.project_name
+
+	# Parameter
+ 	vpc_id 					= module.network.vpc_id
+	subnet_id				=	module.network.public_subnet
+	bastion_keypair	=	var.bastion_keypair
+	bastion_size		=	var.bastion_size
  	# vpc_id				= var.vpc_id
  }

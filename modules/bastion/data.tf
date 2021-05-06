@@ -1,10 +1,3 @@
-# variable "vpc_id" {
-# }
-
-# data "aws_vpc" "vpc" {
-#   id = var.vpc_id
-# }
-
 # Get AMI ID for instances
 data "aws_ami" "ubuntu" {
   most_recent = true

@@ -14,13 +14,6 @@ variable "default_tags" {
 }
 
 variable "vpc_id" {}
-
 variable "subnet_id" {}
-
-variable "bastion_size" {
-  default = "t2.micro"
-}
-
-variable "bastion_keypair" {
-  default = "tadi-lab"
-}
+variable "bastion_size" {}
+variable "bastion_keypair" {}

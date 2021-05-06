@@ -11,6 +11,7 @@ default_tags 	= {
 
 # Bastion Input
 bastion_keypair	=	"tadi-lab"
+bastion_size		=	"t3.micro"
 
 # Network input
 vpc_cidr						=	"11.12.0.0/16"
