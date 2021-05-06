@@ -5,7 +5,7 @@ region			=	"ap-northeast-2"
 # Default tags
 
 default_tags 	= {
-	Owner 			= "anh.dinhtuan1"
+	Owner 		= "anh.dinhtuan1"
 	Environment = "tf-demo"
   }
 
