@@ -10,14 +10,14 @@ resource "aws_instance" "web" {
     vpc_security_group_ids = [aws_security_group.web-sg.id]
 
     volume_tags = merge(
-        var.additional_tags,
+        var.default_tags,
         {
             Name = "${var.project_name}-web-${count.index+1}"
         }
     )
 
     tags = merge(
-        var.additional_tags,
+        var.default_tags,
         {
             Name  = "${var.project_name}-web-${count.index+1}"
         }
@@ -59,7 +59,7 @@ resource "aws_security_group" "web-sg" {
     }
 
     tags = merge(
-        var.additional_tags,
+        var.default_tags,
         {
             Name  = "${var.project_name}-sg-web"
         }

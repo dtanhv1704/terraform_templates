@@ -15,7 +15,7 @@ resource "aws_lb" "alb" {
     # }
     
     tags = merge(
-        var.additional_tags,
+        var.default_tags,
         {
             Name = "${var.project_name}-alb"
         }
@@ -48,7 +48,7 @@ resource "aws_security_group" "alb-sg" {
     }
 
     tags = merge(
-        var.additional_tags,
+        var.default_tags,
         {
             Name  = "${var.project_name}-sg-alb"
         }

@@ -5,7 +5,7 @@ resource "aws_vpc" "vpc" {
     enable_dns_support               = true
     instance_tenancy                 = "default"
     tags                             = merge(
-      var.additional_tags,
+      var.default_tags,
       {
         Name  = "${var.project_name}-vpc"
       }
@@ -16,7 +16,7 @@ resource "aws_vpc" "vpc" {
 resource "aws_internet_gateway" "gw" {
     vpc_id  = aws_vpc.vpc.id
     tags    = merge(
-      var.additional_tags,
+      var.default_tags,
       {
       Name  = "${var.project_name}-gw"
     }
@@ -33,7 +33,7 @@ resource "aws_route_table" "public-rt" {
   }
 
   tags = merge(
-    var.additional_tags,
+    var.default_tags,
     {
       Name  = "${var.project_name}-public-rt"
     }
@@ -50,7 +50,7 @@ resource "aws_route_table" "private-rt" {
   }
 
   tags = merge(
-    var.additional_tags,
+    var.default_tags,
     {
       Name  = "${var.project_name}-private-rt"
     }
@@ -70,7 +70,7 @@ resource "aws_subnet" "public-subnet" {
   availability_zone = element(data.aws_availability_zones.available.names, count.index)
 
   tags = merge(
-    var.additional_tags,
+    var.default_tags,
     {
       Name  = "${var.project_name}-public-subnet-${count.index+1}"
     }
@@ -86,7 +86,7 @@ resource "aws_subnet" "private-subnet" {
   availability_zone = element(data.aws_availability_zones.available.names, count.index)
 
   tags = merge(
-    var.additional_tags,
+    var.default_tags,
     {
       Name  = "${var.project_name}-private-subnet-${count.index+1}"
     }
@@ -111,7 +111,7 @@ resource "aws_eip" "eip-nat-gw" {
   vpc = true
 
   tags = merge(
-    var.additional_tags,
+    var.default_tags,
     {
       Name  = "${var.project_name}-eip-nat-gw"
     }
@@ -124,7 +124,7 @@ resource "aws_nat_gateway" "nat-gw" {
   subnet_id     = element(aws_subnet.public-subnet.*.id, 0)
 
   tags = merge(
-    var.additional_tags,
+    var.default_tags,
     {
       Name  = "${var.project_name}-nat-gw"
     }

@@ -1,5 +1,5 @@
 variable "profile" {
-	default = "labacc-ngloc"
+	default = "default"
 	# default = "vti-training" # AWS profile for provisioning
 	description = "AWS profile for provisioning"
 }
@@ -14,13 +14,14 @@ variable "ami_id" {
 	description = "Ubuntu Server 20.04"
 }
 
-variable "additional_tags" {
-  	default 		= {
+variable "default_tags" {
+  	description = "Default tags for all provisioned resource" # Additional tag for resources
+  	type        = map(string)
+	# Example
+	default 		= {
 		Owner 		= "anh.dinhtuan1"
 		Environment = "demo"
   	}
-  	description = "Additional resource tags" # Additional tag for resources
-  	type        = map(string)
 }
 
 variable "region" {
@@ -65,6 +66,7 @@ variable "key_pair" {
 	description = "Map key pair file for each instance type"
 }
 
-# variable "bastion_size" {
-# 	default = "t2.micro"
-# }
+variable "bastion_key_pair" {
+	description = "Key pair of bastion/jump host"
+	default = "tadi-test"
+}

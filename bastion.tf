@@ -3,7 +3,7 @@ resource "aws_eip" "eip-bastion" {
   vpc = true
 
   tags = merge(
-    var.additional_tags,
+    var.default_tags,
     {
       Name  = "${var.project_name}-eip-bastion"
     }
@@ -21,14 +21,14 @@ resource "aws_instance" "bastion" {
   vpc_security_group_ids = [aws_security_group.bastion-sg.id]
 
   volume_tags = merge(
-    var.additional_tags,
+    var.default_tags,
     {
       Name  = "${var.project_name}-bastion"
     }
   )
 
   tags = merge(
-    var.additional_tags,
+    var.default_tags,
     {
       Name  = "${var.project_name}-bastion"
     }
@@ -62,7 +62,7 @@ resource "aws_security_group" "bastion-sg" {
   }
 
   tags = merge(
-    var.additional_tags,
+    var.default_tags,
     {
       Name  = "${var.project_name}-sg-bastion"
     }
