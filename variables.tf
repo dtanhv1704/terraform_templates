@@ -1,11 +1,11 @@
 variable "profile" {
-	default = "default"
+	# default = "default"
 	# default = "vti-training" # AWS profile for provisioning
 	description = "AWS profile for provisioning"
 }
 
 variable "project_name" {
-  	default = "tflab" # Project name, use as prefix for tagging resource name
+  # default = "tflab" # Project name, use as prefix for tagging resource name
 	description = "The project name, use as prefix for tagging resource name"
 }
 
@@ -68,5 +68,4 @@ variable "key_pair" {
 
 variable "bastion_keypair" {
 	description = "Key pair of bastion/jump host"
-	default = "tadi-lab"
 }

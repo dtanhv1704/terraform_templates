@@ -1,5 +1,5 @@
 profile			=	"labacc-ngloc"
-project_name	=	"terraform"
+project_name	=	"tflab"
 region			=	"ap-northeast-2"
 
 # Default tags
