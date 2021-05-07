@@ -1,6 +1,6 @@
 # Create Prod instances
 resource "aws_instance" "web" {
-    count         = 2
+    count         = var.instance_count
     ami           = data.aws_ami.ubuntu.id #Use data to get AMI ID for defined OS
     # ami           = var.ami_id
     # instance_type = var.bastion_size
@@ -28,7 +28,7 @@ resource "aws_instance" "web" {
 resource "aws_security_group" "web-sg" {
     name        = "${var.project_name}-sg-web"
     description = "Security for Web instances"
-    vpc_id      = aws_vpc.vpc.id
+    vpc_id      = var.vpc_id
     
     ingress {
         description = "Allow SSH from bastion"
